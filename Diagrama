@@ -1,0 +1,25 @@
+Cliente
+    - nome: String
+    - cpf: String
+    - contas: List<Conta>
+    + adicionarConta(conta: Conta)
+    + getContas(): List<Conta>
+
+Conta (abstract)
+    - numero: int
+    - saldo: double
+    - cliente: Cliente
+    + depositar(valor: double)
+    + sacar(valor: double)
+    + transferir(valor: double, contaDestino: Conta)
+
+ContaCorrente extends Conta
+    - limite: double
+
+ContaPoupanca extends Conta
+    - rendimentoMensal: double
+
+Transacao
+    - data: Date
+    - valor: double
+    - tipo: String (DEPOSITO, SAQUE, TRANSFERENCIA)
